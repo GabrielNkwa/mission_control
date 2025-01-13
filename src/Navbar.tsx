@@ -18,37 +18,37 @@ export default function Navbar() {
   const menuItems = [
     {
       title: 'Real-Time Tracking',
-      href: '/real-time-tracking',
+      href: '/realtimetracking',
       description:
         'Monitor assets and personnel in real-time with live location updates and status information.',
     },
     {
       title: 'Secure Communication',
-      href: '/secure-communication',
+      href: '/securecommunication',
       description:
         'End-to-end encrypted communication channels and secure data transmission protocols.',
     },
     {
       title: 'Geofencing',
-      href: '/geofencing',
+      href: '/restrictedzones',
       description:
         'Create and manage virtual perimeters with automated alerts for restricted zone violations.',
     },
     {
       title: 'Asset Monitoring',
-      href: '/asset-monitoring',
+      href: '/assetsandpersonnel',
       description:
         'Comprehensive tracking and management of assets and personnel across locations.',
     },
     {
       title: 'Historical Data',
-      href: '/historical-data',
+      href: '/dataandreporting',
       description:
         'Access detailed historical records and generate comprehensive reports and analytics.',
     },
     {
       title: 'Threat Detection',
-      href: '/threat-detection',
+      href: '/threatdetection',
       description:
         'Advanced threat detection systems with automated response protocols and alerts.',
     },
