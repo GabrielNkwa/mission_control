@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// import { useState } from 'react';
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './Navbar';
 import AssetAndPersonnel from './pages/AssetAndPersonnel';
@@ -14,7 +14,7 @@ import ThreatDetectionAndResponse from './pages/ThreatDetectionAndResponse';
 import MissionPlanner from './pages/MissionPlanner';
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <Router>

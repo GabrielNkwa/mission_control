@@ -22,7 +22,7 @@ const MissionPlanner = () => {
 
   const handleMapClick = (lat: number, lng: number) => {
     addWaypoint({
-      name: `Waypoint ${mission.waypoints.length + 1}`,
+      name: `Waypoint ${mission?.waypoints.length + 1}`,
       lat,
       lng,
       description: "",
@@ -40,12 +40,12 @@ const MissionPlanner = () => {
           <div className="grid gap-2">
             <Input
               placeholder="Mission Title"
-              value={mission.title}
+              value={mission?.title || ""}
               onChange={(e) => updateMission({ title: e.target.value })}
             />
             <Input
               placeholder="Mission Description"
-              value={mission.description}
+              value={mission?.description || ""}
               onChange={(e) => updateMission({ description: e.target.value })}
             />
           </div>
@@ -54,13 +54,13 @@ const MissionPlanner = () => {
               <PopoverTrigger asChild>
                 <Button variant="outline" className="w-[240px] justify-start text-left font-normal">
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {mission.startDate ? format(new Date(mission.startDate), "PPP") : <span>Start Date</span>}
+                  {mission?.startDate ? format(new Date(mission.startDate), "PPP") : <span>Start Date</span>}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={new Date(mission.startDate)}
+                  selected={mission?.startDate ? new Date(mission.startDate) : null}
                   onSelect={(date) => date && updateMission({ startDate: date.toISOString() })}
                 />
               </PopoverContent>
@@ -69,13 +69,13 @@ const MissionPlanner = () => {
               <PopoverTrigger asChild>
                 <Button variant="outline" className="w-[240px] justify-start text-left font-normal">
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {mission.endDate ? format(new Date(mission.endDate), "PPP") : <span>End Date</span>}
+                  {mission?.endDate ? format(new Date(mission.endDate), "PPP") : <span>End Date</span>}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={new Date(mission.endDate)}
+                  selected={mission?.endDate ? new Date(mission.endDate) : null}
                   onSelect={(date) => date && updateMission({ endDate: date.toISOString() })}
                 />
               </PopoverContent>
@@ -90,7 +90,7 @@ const MissionPlanner = () => {
             <CardContent className="p-2">
               <Suspense fallback={<div>Loading map...</div>}>
                 <MissionMap
-                  waypoints={mission.waypoints}
+                  waypoints={mission?.waypoints || []}
                   onWaypointClick={setSelectedWaypoint}
                   onMapClick={handleMapClick}
                 />
@@ -100,7 +100,7 @@ const MissionPlanner = () => {
         </div>
         <div>
           <WaypointList
-            waypoints={mission.waypoints}
+            waypoints={mission?.waypoints || []}
             onWaypointClick={setSelectedWaypoint}
             onWaypointDelete={removeWaypoint}
           />
