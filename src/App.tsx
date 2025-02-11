@@ -11,6 +11,7 @@ import SecureCommunication from './pages/SecureCommunication';
 import RestrictedZones from './pages/RestrictedZones';
 import RealTimeTracking from './pages/RealTimeTracking';
 import ThreatDetectionAndResponse from './pages/ThreatDetectionAndResponse';
+import MissionPlanner from './pages/MissionPlanner';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/assetsandpersonnel" element={<AssetAndPersonnel />} />
+        <Route path="/missionplanning" element={<MissionPlanner />} />
         <Route path="/dataandreporting" element={<DataAndReporting />} />
         <Route path="/securecommunication" element={<SecureCommunication />} />
         <Route path="/restrictedzones" element={<RestrictedZones />} />

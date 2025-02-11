@@ -17,6 +17,12 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 export default function Navbar() {
   const menuItems = [
     {
+      title: 'Mission Planning',
+      href: '/missionplanning',
+      description:
+        'Monitor assets and personnel in real-time with live location updates and status information.',
+    },
+    {
       title: 'Real-Time Tracking',
       href: '/realtimetracking',
       description:
