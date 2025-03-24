@@ -16,7 +16,7 @@ import type { Waypoint } from "../components/types/mission";
 const MissionMap = lazy(() => import("../components/mission-map"));
 
 const MissionPlanner = () => {
-  const { mission, addWaypoint, updateWaypoint, removeWaypoint, updateMission } = useMission();
+  const { mission, addWaypoint, removeWaypoint, updateMission } = useMission();
 
   const [selectedWaypoint, setSelectedWaypoint] = useState<Waypoint | null>(null);
 
@@ -60,7 +60,7 @@ const MissionPlanner = () => {
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={mission?.startDate ? new Date(mission.startDate) : null}
+                  selected={mission?.startDate ? new Date(mission.startDate) : undefined}
                   onSelect={(date) => date && updateMission({ startDate: date.toISOString() })}
                 />
               </PopoverContent>
@@ -75,7 +75,7 @@ const MissionPlanner = () => {
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={mission?.endDate ? new Date(mission.endDate) : null}
+                  selected={mission?.endDate ? new Date(mission.endDate) : undefined}
                   onSelect={(date) => date && updateMission({ endDate: date.toISOString() })}
                 />
               </PopoverContent>
@@ -91,7 +91,7 @@ const MissionPlanner = () => {
               <Suspense fallback={<div>Loading map...</div>}>
                 <MissionMap
                   waypoints={mission?.waypoints || []}
-                  onWaypointClick={setSelectedWaypoint}
+                  onWaypointClick={(waypoint: Waypoint) => setSelectedWaypoint(waypoint)}
                   onMapClick={handleMapClick}
                 />
               </Suspense>
@@ -101,7 +101,7 @@ const MissionPlanner = () => {
         <div>
           <WaypointList
             waypoints={mission?.waypoints || []}
-            onWaypointClick={setSelectedWaypoint}
+            onWaypointClick={(waypoint: Waypoint) => setSelectedWaypoint(waypoint)}
             onWaypointDelete={removeWaypoint}
           />
         </div>
